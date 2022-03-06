@@ -6,3 +6,14 @@
 //
 
 import Foundation
+import Alamofire
+
+protocol AuthRequestFactory {
+    func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void)
+    
+    func logout(id: Int, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void)
+    
+    func registrationUser(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio:String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void)
+    
+    func changingData(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio:String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void)
+}
