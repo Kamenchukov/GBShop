@@ -130,8 +130,8 @@
 				E1135C0F27BD254600F30700 /* SceneDelegate.swift */,
 				E10096EF27CE5C3C0045CA71 /* BussinessLogic */,
 				E10096EE27CE5C320045CA71 /* Entity */,
-				E10096ED27CE5C220045CA71 /* Assembly */,
 				E10096EC27CE5C1A0045CA71 /* Flows */,
+				E100971927E0EA050045CA71 /* Assembly */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -143,13 +143,6 @@
 				E1135C1327BD254600F30700 /* Main.storyboard */,
 			);
 			path = Flows;
-			sourceTree = "<group>";
-		};
-		E10096ED27CE5C220045CA71 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		E10096EE27CE5C320045CA71 /* Entity */ = {
@@ -189,6 +182,13 @@
 				E100970727CE60B40045CA71 /* RequestRouter.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E100971927E0EA050045CA71 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 		E1135C0127BD254600F30700 = {
