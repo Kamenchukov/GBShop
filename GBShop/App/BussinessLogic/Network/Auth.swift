@@ -26,11 +26,21 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
-    func changingData(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio: String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
-        let requestModel = changeUserData(baseUrl: baseUrl, userId: userId, userName: userName, password: password, email: email, gender: gender, creditCard: credirCart, bio: bio)
+    func catalogData(page_number: Int, id_category: Int, completionHandler: @escaping (AFDataResponse<[CatalogResult]>) -> Void) {
+        let requestModel = catalogDataOfGoods(baseUrl: baseUrl, page_number: page_number, id_category: id_category)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
+    func getGoodById(id_product: Int, completionHandler: @escaping (AFDataResponse<GetGoodByIdResult>) -> Void) {
+        let requestModel = getGoodByIdIt(baseUrl: baseUrl, id_product: id_product)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
+    func changingData(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio: String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
+        
+        let requestModel = changeUserData(baseUrl: baseUrl, userId: userId, userName: userName, password: password, email: email, gender: gender, creditCard: credirCart, bio: bio)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
     
     func registrationUser(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio: String, completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void) {
         let requestModel = registerUser(baseUrl: baseUrl, userId: userId, userName: userName, password: password, email: email, gender: gender, creditCard: credirCart, bio: bio)
@@ -44,6 +54,7 @@ extension Auth: AuthRequestFactory {
     
     func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
+//        let requestModel = Login(baseUrl: baseUrl, userName: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -123,6 +134,34 @@ extension Auth {
                 "gender": gender,
                 "creditCard": creditCard,
                 "bio": bio
+            ]
+        }
+    }
+    
+    struct getGoodByIdIt: RequestRouter {
+        var baseUrl: URL
+        var method: HTTPMethod = .get
+        var path: String = "getGoodById.json"
+        
+        var id_product: Int
+        var parameters: Parameters? {
+            return [
+            "id_product": id_product
+            ]
+        }
+    }
+    
+    struct catalogDataOfGoods: RequestRouter {
+        var baseUrl: URL
+        var method: HTTPMethod = .get
+        var path: String = "catalogData.json"
+        
+        var page_number: Int
+        var id_category: Int
+        var parameters: Parameters? {
+            return [
+                "page_number": page_number,
+                "id_category": id_category
             ]
         }
         
