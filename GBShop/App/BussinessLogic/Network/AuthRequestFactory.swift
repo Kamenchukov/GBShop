@@ -16,4 +16,8 @@ protocol AuthRequestFactory {
     func registrationUser(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio:String, completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void)
     
     func changingData(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio:String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void)
+    
+    func getGoodById(id_product: Int, completionHandler: @escaping (AFDataResponse<GetGoodByIdResult>) -> Void)
+    
+    func catalogData(page_number: Int, id_category: Int, completionHandler: @escaping (AFDataResponse<[CatalogResult]>) -> Void)
 }

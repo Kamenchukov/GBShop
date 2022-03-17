@@ -12,14 +12,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        authRequest()
-//        logoutRequest()
-//        registerUser()
-//        changeUserData()
+        authRequest()
+        logoutRequest()
+        registerUser()
+        changeUserData()
+        getGoodById()
+        catalogData()
     }
     
     func authRequest() {
         let auth = requestFactory.makeAuthRequestFatory()
+        
         auth.login(userName: "Somebody", password: "mypassword") {
             response in
             switch response.result {
@@ -60,6 +63,30 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let result):
                 print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func getGoodById() {
+        let getGoodByIdRequest = requestFactory.makeAuthRequestFatory()
+        
+        getGoodByIdRequest.getGoodById(id_product: 123) { response in
+            switch response.result {
+            case .success(let good):
+                print(good)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func catalogData() {
+        let catalogDataRequest = requestFactory.makeAuthRequestFatory()
+        
+        catalogDataRequest.catalogData(page_number: 1, id_category: 1) { response in
+            switch response.result {
+            case .success(let data):
+                print(data)
             case .failure(let error):
                 print(error.localizedDescription)
             }

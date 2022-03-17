@@ -21,6 +21,9 @@
 		E100971B27E1DCEE0045CA71 /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100971A27E1DCEE0045CA71 /* LogoutResult.swift */; };
 		E100971D27E1DD3D0045CA71 /* RegisterUserResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100971C27E1DD3D0045CA71 /* RegisterUserResult.swift */; };
 		E100971F27E1DD520045CA71 /* ChangeUserDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100971E27E1DD520045CA71 /* ChangeUserDataResult.swift */; };
+		E100972127E1E0AE0045CA71 /* AuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100972027E1E0AE0045CA71 /* AuthTest.swift */; };
+		E100972327E210C00045CA71 /* GetGoodByIdResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100972227E210C00045CA71 /* GetGoodByIdResult.swift */; };
+		E100972527E216D80045CA71 /* CatalogResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E100972427E216D80045CA71 /* CatalogResult.swift */; };
 		E1135C0E27BD254600F30700 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1135C0D27BD254600F30700 /* AppDelegate.swift */; };
 		E1135C1027BD254600F30700 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1135C0F27BD254600F30700 /* SceneDelegate.swift */; };
 		E1135C1227BD254600F30700 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1135C1127BD254600F30700 /* ViewController.swift */; };
@@ -63,6 +66,9 @@
 		E100971A27E1DCEE0045CA71 /* LogoutResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
 		E100971C27E1DD3D0045CA71 /* RegisterUserResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserResult.swift; sourceTree = "<group>"; };
 		E100971E27E1DD520045CA71 /* ChangeUserDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataResult.swift; sourceTree = "<group>"; };
+		E100972027E1E0AE0045CA71 /* AuthTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTest.swift; sourceTree = "<group>"; };
+		E100972227E210C00045CA71 /* GetGoodByIdResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoodByIdResult.swift; sourceTree = "<group>"; };
+		E100972427E216D80045CA71 /* CatalogResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogResult.swift; sourceTree = "<group>"; };
 		E1135C0A27BD254600F30700 /* GBShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1135C0D27BD254600F30700 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1135C0F27BD254600F30700 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 				E100971A27E1DCEE0045CA71 /* LogoutResult.swift */,
 				E100971C27E1DD3D0045CA71 /* RegisterUserResult.swift */,
 				E100971E27E1DD520045CA71 /* ChangeUserDataResult.swift */,
+				E100972227E210C00045CA71 /* GetGoodByIdResult.swift */,
+				E100972427E216D80045CA71 /* CatalogResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				E1135C2427BD254800F30700 /* GBShopTests.swift */,
+				E100972027E1E0AE0045CA71 /* AuthTest.swift */,
 			);
 			path = GBShopTests;
 			sourceTree = "<group>";
@@ -387,10 +396,12 @@
 			files = (
 				E100970027CE60460045CA71 /* AbstractErrorParser.swift in Sources */,
 				E10096F727CE5EEC0045CA71 /* Auth.swift in Sources */,
+				E100972527E216D80045CA71 /* CatalogResult.swift in Sources */,
 				E100971B27E1DCEE0045CA71 /* LogoutResult.swift in Sources */,
 				E100971F27E1DD520045CA71 /* ChangeUserDataResult.swift in Sources */,
 				E100971D27E1DD3D0045CA71 /* RegisterUserResult.swift in Sources */,
 				E10096FB27CE5F260045CA71 /* LoginResult.swift in Sources */,
+				E100972327E210C00045CA71 /* GetGoodByIdResult.swift in Sources */,
 				E10096F527CE5EDC0045CA71 /* RequestFactory.swift in Sources */,
 				E100970627CE609C0045CA71 /* AbstractRequestFactory.swift in Sources */,
 				E10096F927CE5F070045CA71 /* AuthRequestFactory.swift in Sources */,
@@ -409,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1135C2527BD254800F30700 /* GBShopTests.swift in Sources */,
+				E100972127E1E0AE0045CA71 /* AuthTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
