@@ -28,4 +28,8 @@ class RequestFactory {
         let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
+    func makeCommandsRequestFactory() -> CommandsRequestFactory {
+        let errorParser = makeErrorParser()
+        return Commands(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
 }
