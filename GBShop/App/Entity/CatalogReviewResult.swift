@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct CatalogReviewResult: Codable {
+    let result: Int
+    let userId: Int
+    let text: String
+}

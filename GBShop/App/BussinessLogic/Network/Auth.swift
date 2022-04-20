@@ -12,7 +12,7 @@ class Auth: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
-    let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
+    let baseUrl = URL(string: "https://fast-falls-02659.herokuapp.com/")!
     
     
     init(
@@ -26,13 +26,13 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
-    func catalogData(page_number: Int, id_category: Int, completionHandler: @escaping (AFDataResponse<[CatalogResult]>) -> Void) {
-        let requestModel = catalogDataOfGoods(baseUrl: baseUrl, page_number: page_number, id_category: id_category)
+    func catalogData(pageNumber: Int, categoryId: Int, completionHandler: @escaping (AFDataResponse<[CatalogResult]>) -> Void) {
+        let requestModel = catalogDataOfGoods(baseUrl: baseUrl, pageNumber: pageNumber, categoryId: categoryId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func getGoodById(id_product: Int, completionHandler: @escaping (AFDataResponse<GetGoodByIdResult>) -> Void) {
-        let requestModel = getGoodByIdIt(baseUrl: baseUrl, id_product: id_product)
+    func getGoodById(productId: Int, completionHandler: @escaping (AFDataResponse<GetGoodByIdResult>) -> Void) {
+        let requestModel = getGoodByIdIt(baseUrl: baseUrl, productId: productId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
@@ -42,19 +42,18 @@ extension Auth: AuthRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func registrationUser(userId: Int, userName: String, password: String, email: String, gender: String, credirCart: String, bio: String, completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void) {
-        let requestModel = registerUser(baseUrl: baseUrl, userId: userId, userName: userName, password: password, email: email, gender: gender, creditCard: credirCart, bio: bio)
+    func registrationUser(username: String, password: String, email: String, gender: String, credirCart: String, bio: String, completionHandler: @escaping (AFDataResponse<RegisterUserResult>) -> Void) {
+        let requestModel = registerUser(baseUrl: baseUrl, username: username, password: password, email: email, gender: gender, creditCard: credirCart, bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func logout(id: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
-        let requestModel = Logout(baseUrl: baseUrl, id: id)
+    func logout(userId: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
+        let requestModel = Logout(baseUrl: baseUrl, userId: userId)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
     func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResult>) -> Void) {
         let requestModel = Login(baseUrl: baseUrl, login: userName, password: password)
-//        let requestModel = Login(baseUrl: baseUrl, userName: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
@@ -62,14 +61,14 @@ extension Auth: AuthRequestFactory {
 extension Auth {
     struct Login: RequestRouter {
         let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "login.json"
+        let method: HTTPMethod = .post
+        let path: String = "login"
         
         let login: String
         let password: String
         var parameters: Parameters? {
             return [
-                "username": login,
+                "login": login,
                 "password": password
             ]
         }
@@ -77,23 +76,22 @@ extension Auth {
     
     struct Logout: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "logout.json"
-        let id: Int
+        var method: HTTPMethod = .post
+        var path: String = "logout"
+        let userId: Int
         
         var parameters: Parameters? {
             return [
-                "id_user": id]
+                "userId": userId]
         }
     }
     
     struct registerUser: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "registerUser.json"
+        var method: HTTPMethod = .post
+        var path: String = "register"
         
-        var userId: Int
-        var userName: String
+        var username: String
         var password: String
         var email: String
         var gender: String
@@ -102,8 +100,7 @@ extension Auth {
         
         var parameters: Parameters? {
             return [
-                "userId": userId,
-                "userName": userName,
+                "username": username,
                 "password": password,
                 "email": email,
                 "gender": gender,
@@ -114,8 +111,8 @@ extension Auth {
     }
     struct changeUserData: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "changeUserData.json"
+        var method: HTTPMethod = .post
+        var path: String = "changeUserData"
         
         var userId: Int
         var userName: String
@@ -140,28 +137,28 @@ extension Auth {
     
     struct getGoodByIdIt: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "getGoodById.json"
+        var method: HTTPMethod = .post
+        var path: String = "getGoodById"
         
-        var id_product: Int
+        var productId: Int
         var parameters: Parameters? {
             return [
-            "id_product": id_product
+            "productId": productId
             ]
         }
     }
     
     struct catalogDataOfGoods: RequestRouter {
         var baseUrl: URL
-        var method: HTTPMethod = .get
-        var path: String = "catalogData.json"
+        var method: HTTPMethod = .post
+        var path: String = "catalog"
         
-        var page_number: Int
-        var id_category: Int
+        var pageNumber: Int
+        var categoryId: Int
         var parameters: Parameters? {
             return [
-                "page_number": page_number,
-                "id_category": id_category
+                "pageNumber": pageNumber,
+                "categoryId": categoryId
             ]
         }
         

@@ -33,6 +33,11 @@
 		E1135C2527BD254800F30700 /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1135C2427BD254800F30700 /* GBShopTests.swift */; };
 		E1135C2F27BD254800F30700 /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1135C2E27BD254800F30700 /* GBShopUITests.swift */; };
 		E1135C3127BD254800F30700 /* GBShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1135C3027BD254800F30700 /* GBShopUITestsLaunchTests.swift */; };
+		E1F82515280EDF96005AF824 /* AddReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F82514280EDF96005AF824 /* AddReviewResult.swift */; };
+		E1F82517280EE013005AF824 /* RemoveReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F82516280EE013005AF824 /* RemoveReviewResult.swift */; };
+		E1F82519280EE059005AF824 /* CatalogReviewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F82518280EE059005AF824 /* CatalogReviewResult.swift */; };
+		E1F8251B280EE0D3005AF824 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8251A280EE0D2005AF824 /* Commands.swift */; };
+		E1F8251D280EE1A1005AF824 /* CommandsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8251C280EE1A1005AF824 /* CommandsRequestFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,11 @@
 		E1135C2A27BD254800F30700 /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1135C2E27BD254800F30700 /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		E1135C3027BD254800F30700 /* GBShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E1F82514280EDF96005AF824 /* AddReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewResult.swift; sourceTree = "<group>"; };
+		E1F82516280EE013005AF824 /* RemoveReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewResult.swift; sourceTree = "<group>"; };
+		E1F82518280EE059005AF824 /* CatalogReviewResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogReviewResult.swift; sourceTree = "<group>"; };
+		E1F8251A280EE0D2005AF824 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		E1F8251C280EE1A1005AF824 /* CommandsRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandsRequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +177,9 @@
 				E100971E27E1DD520045CA71 /* ChangeUserDataResult.swift */,
 				E100972227E210C00045CA71 /* GetGoodByIdResult.swift */,
 				E100972427E216D80045CA71 /* CatalogResult.swift */,
+				E1F82514280EDF96005AF824 /* AddReviewResult.swift */,
+				E1F82516280EE013005AF824 /* RemoveReviewResult.swift */,
+				E1F82518280EE059005AF824 /* CatalogReviewResult.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -185,6 +198,8 @@
 				E10096F627CE5EEC0045CA71 /* Auth.swift */,
 				E10096F427CE5EDC0045CA71 /* RequestFactory.swift */,
 				E10096F827CE5F070045CA71 /* AuthRequestFactory.swift */,
+				E1F8251A280EE0D2005AF824 /* Commands.swift */,
+				E1F8251C280EE1A1005AF824 /* CommandsRequestFactory.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -395,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E100970027CE60460045CA71 /* AbstractErrorParser.swift in Sources */,
+				E1F82519280EE059005AF824 /* CatalogReviewResult.swift in Sources */,
 				E10096F727CE5EEC0045CA71 /* Auth.swift in Sources */,
 				E100972527E216D80045CA71 /* CatalogResult.swift in Sources */,
 				E100971B27E1DCEE0045CA71 /* LogoutResult.swift in Sources */,
@@ -404,10 +420,14 @@
 				E100972327E210C00045CA71 /* GetGoodByIdResult.swift in Sources */,
 				E10096F527CE5EDC0045CA71 /* RequestFactory.swift in Sources */,
 				E100970627CE609C0045CA71 /* AbstractRequestFactory.swift in Sources */,
+				E1F8251D280EE1A1005AF824 /* CommandsRequestFactory.swift in Sources */,
 				E10096F927CE5F070045CA71 /* AuthRequestFactory.swift in Sources */,
 				E100970227CE605C0045CA71 /* ErrorParser.swift in Sources */,
 				E10096FD27CE5F320045CA71 /* User.swift in Sources */,
+				E1F82515280EDF96005AF824 /* AddReviewResult.swift in Sources */,
+				E1F82517280EE013005AF824 /* RemoveReviewResult.swift in Sources */,
 				E1135C1227BD254600F30700 /* ViewController.swift in Sources */,
+				E1F8251B280EE0D3005AF824 /* Commands.swift in Sources */,
 				E1135C0E27BD254600F30700 /* AppDelegate.swift in Sources */,
 				E1135C1027BD254600F30700 /* SceneDelegate.swift in Sources */,
 				E100970427CE60790045CA71 /* ResponseCodable.swift in Sources */,

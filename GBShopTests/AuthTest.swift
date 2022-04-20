@@ -11,12 +11,12 @@ import Alamofire
 
 
 class AuthTest: XCTestCase {
-    let expectation = XCTestExpectation(description: "login.json")
-    let expectationLogout = XCTestExpectation(description: "logout.json")
-    let expectationRegisterUser = XCTestExpectation(description: "registerUser.json")
-    let expectationChangeUserData = XCTestExpectation(description: "changeUserData.json")
-    let expectationCatalogData = XCTestExpectation(description: "catalogData.json")
-    let expectationGetGoodById = XCTestExpectation(description: "getGoodById.json")
+    let expectation = XCTestExpectation(description: "login")
+    let expectationLogout = XCTestExpectation(description: "logout")
+    let expectationRegisterUser = XCTestExpectation(description: "register")
+    let expectationChangeUserData = XCTestExpectation(description: "changeUserData")
+    let expectationCatalogData = XCTestExpectation(description: "catalog")
+    let expectationGetGoodById = XCTestExpectation(description: "getGoodById")
     
     var requestFactory: RequestFactory!
 
@@ -33,7 +33,7 @@ class AuthTest: XCTestCase {
     func testLogin() {
         let login = requestFactory.makeAuthRequestFatory()
         
-        login.login(userName: "Somebody", password: "mypassword") { response in
+        login.login(userName: "konstantin", password: "pas$w0rd") { response in
             switch response.result {
             case .success(let login):
                 print(login)
@@ -47,7 +47,7 @@ class AuthTest: XCTestCase {
     func testLogout() {
         let logout = requestFactory.makeAuthRequestFatory()
         
-        logout.logout(id: 123) { response in
+        logout.logout(userId: 123) { response in
             switch response.result {
             case .success(let logout):
                 print(logout)
@@ -62,7 +62,7 @@ class AuthTest: XCTestCase {
     func testRegisterUser() {
         let registerUser = requestFactory.makeAuthRequestFatory()
         
-        registerUser.registrationUser(userId: 123, userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", credirCart: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
+        registerUser.registrationUser(username: "Konstantin", password: "pas$w0rd", email: "konstantin@kamenchukov.ru", gender: "male", credirCart: "1234123412341234", bio: "the best") { response in
             switch response.result {
             case .success(let registration):
                 print(registration)
@@ -77,7 +77,7 @@ class AuthTest: XCTestCase {
     func testChangeUserData() {
         let changeUserData = requestFactory.makeAuthRequestFatory()
         
-        changeUserData.changingData(userId: 123, userName: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", credirCart: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
+        changeUserData.changingData(userId: 123, userName: "Konstantin", password: "pas$w0rd", email: "konstantin@kamenchukov.ru", gender: "male", credirCart: "1234123412341234", bio: "Customer") { response in
             switch response.result {
             case .success(let change):
                 print(change)
@@ -91,7 +91,7 @@ class AuthTest: XCTestCase {
     func testCatalogData() {
         let catalogData = requestFactory.makeAuthRequestFatory()
 
-        catalogData.catalogData(page_number: 1, id_category: 1) { response in
+        catalogData.catalogData(pageNumber: 1, categoryId: 1) { response in
             switch response.result {
             case .success(let catalog):
                 print(catalog)
@@ -105,7 +105,7 @@ class AuthTest: XCTestCase {
     func testGetGoodById() {
         let getGoodById = requestFactory.makeAuthRequestFatory()
         
-        getGoodById.getGoodById(id_product: 123) { response in
+        getGoodById.getGoodById(productId: 123) { response in
             switch response.result {
             case .success(let good):
                 print(good)

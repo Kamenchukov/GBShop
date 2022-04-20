@@ -8,6 +8,7 @@
 import Foundation
 
 struct RegisterUserResult: Codable {
+    var userId: String
     let result: Int
     let userMessage: String
 }
