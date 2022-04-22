@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     let requestFactory = RequestFactory()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         authRequest()
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
         addReview()
         removeReview()
         catalogReview()
+//        payBasketFlow()
     }
     
     func authRequest() {
@@ -133,5 +135,32 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func payBasketFlow() {
+        let basket = BasketSingleton.shared
+        let basketRequest = requestFactory.makeBasketRequestFactory()
+
+         basket.addProduct(product: Product(
+           id: 1,
+           name: "Ipad",
+           price: 70000,
+           description: "Планшет"
+         ))
+         basket.addProduct(product: Product(
+           id: 2,
+           name: "MacBook Pro",
+           price: 250000,
+           description: "ноутбук"
+         ))
+        basketRequest.payBasket(userId: Int(UUID().uuidString)!) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+       }
+    
 }
 
