@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct AddBasketResult: Codable {
+    let result: Int
+}

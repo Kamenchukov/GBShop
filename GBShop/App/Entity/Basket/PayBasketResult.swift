@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct PayBasketResult: Codable {
+    let result:Int
+    let message: String?
+}

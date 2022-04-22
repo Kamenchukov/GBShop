@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import Alamofire
+
+protocol BasketRequestFactory {
+    
+    func payBasket(userId: Int, completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void)
+}
